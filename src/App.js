@@ -1,15 +1,28 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+
 import { useAddToHomescreenPrompt } from "./AddToHomeScreen";
+import Home from "./pages/index";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 function App() {
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const [isAppInstalled, setIsAppInstalled] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleInstall = () => {
+    handleClose();
+    promptToInstall();
+  };
+  const handleShow = () => setShow(true);
 
   React.useEffect(() => {
     isPWAInstalled();
   }, []);
+
   const isPWAInstalled = async () => {
     if ("getInstalledRelatedApps" in window.navigator) {
       const relatedApps = await navigator.getInstalledRelatedApps();
@@ -22,30 +35,32 @@ function App() {
         }
       });
       setIsAppInstalled(installed);
+
+      !installed && handleShow();
     }
   };
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <Home />
+      
 
-        {!isAppInstalled ? (
-          <button onClick={promptToInstall}>Add to Home Screen</button>
-        ) : (
-          <div>Thanks for installing our app</div>
-        )}
-      </header>
-    </div>
+      {!isAppInstalled && (
+        <Modal size="sm" centered show={show} onHide={handleClose}>
+          <Modal.Body>
+            <h4>Install Nagad Poc</h4>
+            <p>Install this application on your home screen for quick and easy access </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose} size="sm">
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleInstall} size="sm">
+              Install
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      )}
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Nagad-poc App",
+  "name": "Nagad-poc PWA Application",
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,7 +21,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://nagad-poc-v2.netlify.app/manifest.json"
+      "url": "https://nagad-poc.netlify.app/manifest.json"
     }
  ],
   "start_url": ".",
