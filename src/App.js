@@ -28,27 +28,25 @@ function App() {
       const relatedApps = await navigator.getInstalledRelatedApps();
       let installed = false;
       console.log("relatedApps", navigator);
-
+      alert("global outside", );
       relatedApps.forEach((app) => {
         //if your PWA exists in the array it is installed
 
-        alert("app.url outside", app.url);
+       
         if (app.url === "https://nagad-poc-v2.vercel.app/manifest.json") {
           installed = true;
-        } else {
-          alert("app.url inside", app.url);
-        }
+        } 
       });
       setIsAppInstalled(installed);
 
-      !installed && handleShow();
+      !installed &&  promptToInstall();
     }
   };
   return (
     <>
       <Home />
 
-      {!isAppInstalled && (
+      {/* {!isAppInstalled && (
         <Modal size="sm" centered show={show} onHide={handleClose}>
           <Modal.Body>
             <h4>Install Nagad Poc</h4>
@@ -66,7 +64,7 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-      )}
+      )} */}
     </>
   );
 }
