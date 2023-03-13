@@ -23,18 +23,11 @@ function App() {
     isPWAInstalled();
   }, []);
 
-  useEffect(() => {
-    if (!isAppInstalled) {
-      handleInstall();
-    }
-  }, [isAppInstalled,show]);
-
   const isPWAInstalled = async () => {
     if ("getInstalledRelatedApps" in window.navigator) {
       const relatedApps = await navigator.getInstalledRelatedApps();
       let installed = false;
-      console.log("relatedApps", navigator);
-      alert("global outside");
+
       relatedApps.forEach((app) => {
         //if your PWA exists in the array it is installed
 
@@ -51,7 +44,7 @@ function App() {
     <>
       <Home />
 
-      {/* {!isAppInstalled && (
+      {!isAppInstalled && (
         <Modal size="sm" centered show={show} onHide={handleClose}>
           <Modal.Body>
             <h4>Install Nagad Poc</h4>
@@ -69,7 +62,7 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-      )} */}
+      )}
     </>
   );
 }

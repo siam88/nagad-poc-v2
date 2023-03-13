@@ -153,7 +153,6 @@ const UploadPage = ({
 
       {!show && (
         <div
-         
           {...getRootProps({
             role: "unset",
           })}
@@ -164,7 +163,7 @@ const UploadPage = ({
             <div className="logo_two">
               <img src={LogoOne} alt="logo" />
             </div>
-            
+
             {loading ? (
               <div className="scene_three_picture my-5">
                 <div className="text-center">
@@ -186,21 +185,23 @@ const UploadPage = ({
             )}
             {!loading && (
               <div className="btns">
-                {deviceStatus.hasWebcam && CAMERA == "ON" && (
+                {/* {deviceStatus.hasWebcam && CAMERA == "ON" && (
                   <button onClick={() => setShow(true)}>
                     <img src={CameraImage} alt="camera " />
                     <p>Camera</p>
                   </button>
-                )}
+                )} */}
 
-                <button
+                <div
+                  style={{ cursor: "pointer" }}
                   onClick={() => {
                     inputRef.current?.click();
                   }}
                 >
                   <img src={UploadImg} alt="upload file" />
-                  <p>Upload</p>
-                </button>
+                  <br />
+                  <b>Upload/Camera</b>
+                </div>
               </div>
             )}
             {/* <div className="scene_three_btn">
