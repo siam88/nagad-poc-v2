@@ -185,12 +185,12 @@ const UploadPage = ({
             )}
             {!loading && (
               <div className="btns">
-                {/* {deviceStatus.hasWebcam && CAMERA == "ON" && (
+                {deviceStatus.hasWebcam && CAMERA == "ON" && (
                   <button onClick={() => setShow(true)}>
                     <img src={CameraImage} alt="camera " />
                     <p>Camera</p>
                   </button>
-                )} */}
+                )}
 
                 <div
                   style={{ cursor: "pointer" }}
