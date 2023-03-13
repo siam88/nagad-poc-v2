@@ -21,6 +21,7 @@ function App() {
 
   React.useEffect(() => {
     isPWAInstalled();
+    !isAppInstalled && promptToInstall();
   }, []);
 
   const isPWAInstalled = async () => {
@@ -42,13 +43,15 @@ function App() {
   return (
     <>
       <Home />
-      
 
-      {!isAppInstalled && (
+      {/* {!isAppInstalled && (
         <Modal size="sm" centered show={show} onHide={handleClose}>
           <Modal.Body>
             <h4>Install Nagad Poc</h4>
-            <p>Install this application on your home screen for quick and easy access </p>
+            <p>
+              Install this application on your home screen for quick and easy
+              access{" "}
+            </p>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose} size="sm">
@@ -59,7 +62,7 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-      )}
+      )} */}
     </>
   );
 }
