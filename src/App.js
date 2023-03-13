@@ -33,9 +33,11 @@ function App() {
       relatedApps.forEach((app) => {
         //if your PWA exists in the array it is installed
 
-        console.log(app.platform, app.url);
+      
         if (app.url === "https://nagad-poc-v2.vercel.app/manifest.json") {
           installed = true;
+        }else{
+          alert("app.url",app.url)
         }
       });
       setIsAppInstalled(installed);
