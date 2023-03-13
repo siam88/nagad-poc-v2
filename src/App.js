@@ -42,7 +42,7 @@ function App() {
   };
   return (
     <>
-      <Home />
+      {/* <Home />
 
       {!isAppInstalled && (
         <Modal size="sm" centered show={show} onHide={handleClose}>
@@ -62,7 +62,7 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-      )}
+      )} */}
     </>
   );
 }
