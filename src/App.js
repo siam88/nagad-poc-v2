@@ -21,7 +21,11 @@ function App() {
 
   useEffect(() => {
     isPWAInstalled();
+  
   }, []);
+  useEffect(() => {
+    !isAppInstalled && promptToInstall();
+  }, [isAppInstalled]);
 
   const isPWAInstalled = async () => {
     
@@ -47,7 +51,7 @@ function App() {
     <>
       <Home />
 
-      {!isAppInstalled && (
+      {/* {!isAppInstalled && (
         <Modal size="sm" centered show={show} onHide={handleClose}>
           <Modal.Body>
             <h4>Install Nagad Poc</h4>
@@ -65,7 +69,7 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-      )}
+      )} */}
     </>
   );
 }
