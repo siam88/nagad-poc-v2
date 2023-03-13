@@ -199,7 +199,7 @@ const UploadPage = ({
                 >
                   <img src={UploadImg} alt="upload file" />
 
-                  <p>Upload/Camera</p>
+                  <p>Upload</p>
                 </button>
               </div>
             )}
