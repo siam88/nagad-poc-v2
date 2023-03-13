@@ -192,16 +192,15 @@ const UploadPage = ({
                   </button>
                 )}
 
-                <div
-                  style={{ cursor: "pointer" }}
+                <button
                   onClick={() => {
                     inputRef.current?.click();
                   }}
                 >
                   <img src={UploadImg} alt="upload file" />
-                 
+
                   <p>Upload/Camera</p>
-                </div>
+                </button>
               </div>
             )}
             {/* <div className="scene_three_btn">
