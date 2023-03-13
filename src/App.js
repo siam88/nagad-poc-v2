@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     isPWAInstalled();
-  }, []);
+  }, [isAppInstalled]);
 
   const isPWAInstalled = async () => {
     if ("getInstalledRelatedApps" in window.navigator) {
