@@ -22,15 +22,13 @@ function App() {
   useEffect(() => {
     isPWAInstalled();
   }, []);
-  // useEffect(() => {
-  //   !isAppInstalled && promptToInstall();
-  // }, [isAppInstalled]);
 
   const isPWAInstalled = async () => {
+    
     if ("getInstalledRelatedApps" in window.navigator) {
       const relatedApps = await navigator.getInstalledRelatedApps();
       let installed = false;
-      console.log("relatedApps", navigator);
+      console.log("relatedApps",navigator);
 
       relatedApps.forEach((app) => {
         //if your PWA exists in the array it is installed
@@ -38,8 +36,6 @@ function App() {
         console.log(app.platform, app.url);
         if (app.url === "https://nagad-poc-v2.vercel.app/manifest.json") {
           installed = true;
-        } else {
-          promptToInstall();
         }
       });
       setIsAppInstalled(installed);
@@ -51,7 +47,7 @@ function App() {
     <>
       <Home />
 
-      {/* {!isAppInstalled && (
+      {!isAppInstalled && (
         <Modal size="sm" centered show={show} onHide={handleClose}>
           <Modal.Body>
             <h4>Install Nagad Poc</h4>
@@ -69,7 +65,7 @@ function App() {
             </Button>
           </Modal.Footer>
         </Modal>
-      )} */}
+      )}
     </>
   );
 }
