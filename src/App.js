@@ -23,23 +23,28 @@ function App() {
     isPWAInstalled();
   }, []);
 
+  useEffect(() => {
+    if (!isAppInstalled) {
+      handleInstall();
+    }
+  }, [isAppInstalled,show]);
+
   const isPWAInstalled = async () => {
     if ("getInstalledRelatedApps" in window.navigator) {
       const relatedApps = await navigator.getInstalledRelatedApps();
       let installed = false;
       console.log("relatedApps", navigator);
-      alert("global outside", );
+      alert("global outside");
       relatedApps.forEach((app) => {
         //if your PWA exists in the array it is installed
 
-       
         if (app.url === "https://nagad-poc-v2.vercel.app/manifest.json") {
           installed = true;
-        } 
+        }
       });
       setIsAppInstalled(installed);
 
-      !installed &&  promptToInstall();
+      !installed && handleShow();
     }
   };
   return (
