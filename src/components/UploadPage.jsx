@@ -199,8 +199,8 @@ const UploadPage = ({
                   }}
                 >
                   <img src={UploadImg} alt="upload file" />
-                  <br />
-                  <b>Upload/Camera</b>
+                 
+                  <p>Upload/Camera</p>
                 </div>
               </div>
             )}
