@@ -21,7 +21,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://nagad-poc.netlify.app/manifest.json"
+      "url": "https://nagad-poc-v2.vercel.app/manifest.json"
     }
  ],
   "start_url": ".",

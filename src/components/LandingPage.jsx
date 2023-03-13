@@ -12,9 +12,9 @@ const LandingPage = ({ setCurrentScene, isAppInstalled, promptToInstall }) => {
         </div>
 
         <div className="scene_one_btn">
-          <btton className="global_btn" onClick={() => setCurrentScene(1)}>
+          <button className="global_btn" onClick={() => setCurrentScene(1)}>
             Start
-          </btton>
+          </button>
         </div>
        
       </div>
