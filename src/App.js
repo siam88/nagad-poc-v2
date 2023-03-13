@@ -24,20 +24,19 @@ function App() {
   }, []);
 
   const isPWAInstalled = async () => {
-    
     if ("getInstalledRelatedApps" in window.navigator) {
       const relatedApps = await navigator.getInstalledRelatedApps();
       let installed = false;
-      console.log("relatedApps",navigator);
+      console.log("relatedApps", navigator);
 
       relatedApps.forEach((app) => {
         //if your PWA exists in the array it is installed
 
-      
+        alert("app.url outside", app.url);
         if (app.url === "https://nagad-poc-v2.vercel.app/manifest.json") {
           installed = true;
-        }else{
-          alert("app.url",app.url)
+        } else {
+          alert("app.url inside", app.url);
         }
       });
       setIsAppInstalled(installed);
