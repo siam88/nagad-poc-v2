@@ -17,8 +17,7 @@ const UploadPage = ({
   setLoading,
   setResults,
   setImageUpdated,
-  loading,
-  gender,
+  loading,gender
 }) => {
   const [show, setShow] = useState(false);
   const [capturedImage, setCapturedImage] = useState("");
@@ -64,7 +63,7 @@ const UploadPage = ({
   };
   const onCameraSubmit = (img) => {
     var formData = new FormData();
-    formData.append("file", img);
+    formData.append("file", dataURLtoFile(img));
     formData.append("gender", gender);
 
     submitImage(
@@ -97,7 +96,7 @@ const UploadPage = ({
           // const binaryStr = reader.result;
 
           var formData = new FormData();
-          formData.append("file", file);
+          formData.append("file", dataURLtoFile(file));
           formData.append("gender", gender);
           // formData.append("file", dataURLtoFile(binaryStr));
           setResults();
