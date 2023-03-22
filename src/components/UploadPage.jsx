@@ -2,7 +2,7 @@ import { useDropzone } from "react-dropzone";
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import { dataURLtoFile } from "../helpers";
-import LogoOne from "../assets/images/logo_1.png";
+import LogoOne from "../assets/images/logo.png";
 import CameraImage from "../assets/images/camera.svg";
 import UploadImg from "../assets/images/upload.svg";
 import ResultImg from "../assets/images/result.jpg";
@@ -40,7 +40,7 @@ const UploadPage = ({
     setMode("Camera");
     setLoading(true);
     setResults();
-    fetch(`${SERVER_ROOT}/v1/Nagad_SOV`, {
+    fetch(`${SERVER_ROOT}/feet_size`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -63,15 +63,16 @@ const UploadPage = ({
   };
   const onCameraSubmit = (img) => {
     var formData = new FormData();
-    formData.append("image", dataURLtoFile(img));
+    formData.append("file", dataURLtoFile(img));
     submitImage(
       formData,
       (result) => {
-        setResults((prev) => {
-          setImageUpdated(true);
-          setCurrentScene(3);
-          return { input: img, out: result };
-        });
+        console.log(result);
+        // setResults((prev) => {
+        //   setImageUpdated(true);
+        //   setCurrentScene(3);
+        //   return { input: img, out: result };
+        // });
 
         // setResults((prev) => {
         //   return [...prev, { input: img, out: result }];
@@ -96,20 +97,26 @@ const UploadPage = ({
         reader.onerror = () => toast.warn("file reading has failed");
         reader.onload = () => {
           setLoading(true);
-          const binaryStr = reader.result;
+          // const binaryStr = reader.result;
+
           var formData = new FormData();
-          formData.append("image", dataURLtoFile(binaryStr));
+          formData.append("file", file);
+          // formData.append("file", dataURLtoFile(binaryStr));
           setResults();
           submitImage(
             formData,
             (result) => {
-              setResults((prev) => {
-                setImageUpdated(true);
-                setCurrentScene(3);
-                return { input: binaryStr, out: result };
-              });
-
+              console.log(result);
+              setImageUpdated(true);
+              setCurrentScene(2);
+              setResults(result);
               setLoading(false);
+              // setResults((prev) => {
+
+              //   return { input: binaryStr, out: result };
+              // });
+
+              //
             },
             () => {}
           );

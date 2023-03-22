@@ -31,7 +31,7 @@ function App() {
       relatedApps.forEach((app) => {
         //if your PWA exists in the array it is installed
 
-        if (app.url === "https://nagad-poc-v2.vercel.app/manifest.json") {
+        if (app.url === "https://poc-iota.vercel.app/manifest.json") {
           installed = true;
         }
       });
@@ -42,7 +42,8 @@ function App() {
   };
   return (
     <>
-      {/* <Home />
+     <Home />
+      {/*
 
       {!isAppInstalled && (
         <Modal size="sm" centered show={show} onHide={handleClose}>

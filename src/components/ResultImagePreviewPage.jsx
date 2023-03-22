@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import LogoOne from "../assets/images/logo_1.png";
+import LogoOne from "../assets/images/logo.png";
 
 const { REACT_APP_SERVER_ROOT: SERVER_ROOT } = process.env;
 

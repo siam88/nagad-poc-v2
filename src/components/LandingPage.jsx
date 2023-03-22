@@ -1,4 +1,4 @@
-import LogoOne from "../assets/images/logo_1.png";
+import LogoOne from "../assets/images/logo.png";
 
 const LandingPage = ({ setCurrentScene, isAppInstalled, promptToInstall }) => {
   return (
