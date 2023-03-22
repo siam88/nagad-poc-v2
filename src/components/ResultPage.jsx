@@ -19,7 +19,7 @@ const area = {
   bkash_qr_code: 40,
 };
 
-const ResultPage = ({ setCurrentScene, result }) => {
+const ResultPage = ({ setCurrentScene, result, message }) => {
   // const [image, setImage] = useState();
   // const [structuredResult, setStructuredResult] = useState([]);
   // const [total, setTotal] = useState();
@@ -32,13 +32,13 @@ const ResultPage = ({ setCurrentScene, result }) => {
         </div>
         <div className="data_table mt-5">
           <div className="inner_data_table">
-            {result.Show_size && result.feet_size_cm ? (
-              <div style={{textAlign:"center"}}>
+            {result?.Show_size && result?.feet_size_cm ? (
+              <div style={{ textAlign: "center" }}>
                 <h2>Feet Size</h2>
-                <hr/>
+                <hr />
                 <h2>Shoe Size</h2>
                 <h1>{result.Show_size}</h1>
-                <hr/>
+                <hr />
                 <h2>Feet Size(Cm)</h2>
                 <h1>{result.feet_size_cm.toFixed(2)}</h1>
                 {/* <table className="table table-bordered">
@@ -56,6 +56,8 @@ const ResultPage = ({ setCurrentScene, result }) => {
                   </tbody>
                 </table> */}
               </div>
+            ) : message ? (
+              <h1 style={{ textAlign: "center" }}>{message} :(</h1>
             ) : (
               <div style={{ textAlign: "center" }}>
                 <h1>Sorry,</h1>

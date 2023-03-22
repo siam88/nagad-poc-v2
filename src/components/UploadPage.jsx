@@ -19,6 +19,7 @@ const UploadPage = ({
   setImageUpdated,
   loading,
   gender,
+  setMessage,
 }) => {
   const [show, setShow] = useState(false);
   const [capturedImage, setCapturedImage] = useState("");
@@ -70,10 +71,16 @@ const UploadPage = ({
     submitImage(
       formData,
       (result) => {
-        setImageUpdated(true);
-        setCurrentScene(3);
-        setResults(result);
-        setLoading(false);
+        if (result.error) {
+          setMessage(result.error);
+          setCurrentScene(3);
+          setLoading(false);
+        } else {
+          setImageUpdated(true);
+          setCurrentScene(3);
+          setResults(result);
+          setLoading(false);
+        }
       },
       () => {}
     );

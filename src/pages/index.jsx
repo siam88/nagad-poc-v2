@@ -11,6 +11,7 @@ const Home = ({ isAppInstalled, promptToInstall }) => {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState();
   const [gender, setGender] = useState();
+  const [message, setMessage] = useState();
 
   switch (currentScene) {
     case 0:
@@ -31,10 +32,12 @@ const Home = ({ isAppInstalled, promptToInstall }) => {
           loading={loading}
           setLoading={setLoading}
           setResults={setResults}
+          setMessage={setMessage}
+
         />
       );
     case 3:
-      return <ResultPage setCurrentScene={setCurrentScene} result={results} />;
+      return <ResultPage setCurrentScene={setCurrentScene} result={results} message={message} />;
 
     default:
       return <LandingPage setCurrentScene={setCurrentScene} />;
