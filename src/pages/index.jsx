@@ -10,13 +10,22 @@ const Home = ({ isAppInstalled, promptToInstall }) => {
   const [imageUpdated, setImageUpdated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState();
+  const [gender, setGender] = useState();
 
   switch (currentScene) {
     case 0:
       return <LandingPage setCurrentScene={setCurrentScene} />;
     case 1:
       return (
+        <InstructionPage
+          setCurrentScene={setCurrentScene}
+          setGender={setGender}
+        />
+      );
+    case 2:
+      return (
         <UploadPage
+          gender={gender}
           setCurrentScene={setCurrentScene}
           setImageUpdated={setImageUpdated}
           loading={loading}
@@ -24,7 +33,7 @@ const Home = ({ isAppInstalled, promptToInstall }) => {
           setResults={setResults}
         />
       );
-    case 2:
+    case 3:
       return <ResultPage setCurrentScene={setCurrentScene} result={results} />;
 
     default:

@@ -18,6 +18,7 @@ const UploadPage = ({
   setResults,
   setImageUpdated,
   loading,
+  gender,
 }) => {
   const [show, setShow] = useState(false);
   const [capturedImage, setCapturedImage] = useState("");
@@ -63,12 +64,14 @@ const UploadPage = ({
   };
   const onCameraSubmit = (img) => {
     var formData = new FormData();
-    formData.append("file", dataURLtoFile(img));
+    formData.append("file", img);
+    formData.append("gender", gender);
+
     submitImage(
       formData,
       (result) => {
         setImageUpdated(true);
-        setCurrentScene(2);
+        setCurrentScene(3);
         setResults(result);
         setLoading(false);
       },
@@ -95,6 +98,7 @@ const UploadPage = ({
 
           var formData = new FormData();
           formData.append("file", file);
+          formData.append("gender", gender);
           // formData.append("file", dataURLtoFile(binaryStr));
           setResults();
           submitImage(
@@ -102,7 +106,7 @@ const UploadPage = ({
             (result) => {
               console.log(result);
               setImageUpdated(true);
-              setCurrentScene(2);
+              setCurrentScene(3);
               setResults(result);
               setLoading(false);
               // setResults((prev) => {

@@ -33,7 +33,7 @@ const ResultPage = ({ setCurrentScene, result }) => {
         <div className="data_table mt-5">
           <h2>Feet Size</h2>
           <div className="inner_data_table">
-            <table className="table table-bordered">
+           {result.Show_size && result.feet_size_cm ? <table className="table table-bordered">
               <thead>
                 <tr>
                   <th scope="col">Shoe Size</th>
@@ -46,7 +46,9 @@ const ResultPage = ({ setCurrentScene, result }) => {
                   <td>{result.feet_size_cm.toFixed(2)}</td>
                 </tr>
               </tbody>
-            </table>
+            </table>:
+            <h1>Sorry. No Size Found. Take your picture again</h1>
+            }
           </div>
         </div>
 

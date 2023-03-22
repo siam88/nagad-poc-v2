@@ -1,27 +1,47 @@
 import LogoOne from "../assets/images/logo.png";
 import TrainedImg from "../assets/images/trained_image.png";
 
-const InstructionPage = ({ setCurrentScene }) => {
+const InstructionPage = ({ setCurrentScene, setGender }) => {
+  const onSelectGender = (type) => {
+    setGender(type);
+    setCurrentScene(2);
+  };
   return (
     <div className="scene_two pb-3">
-    <div className="logo_two">
-      <img src={LogoOne} alt="logo" />
+      <div className="logo_two">
+        <img src={LogoOne} alt="logo" />
+      </div>
+      <div className="scene_one_tagLine">
+        <h1 className="pb-2">About You </h1>
+      </div>
+
+      <div className="scene_two_btn">
+        <button
+          className="global_btn my-2 py-4  w-100 "
+          onClick={() => onSelectGender("m")}
+        >
+          Male(Adult)
+        </button>
+        <button
+          className="global_btn my-2 py-4 w-100"
+          onClick={() => onSelectGender("f")}
+        >
+          Female(Adult)
+        </button>
+        <button
+          className="global_btn my-2 py-4 w-100"
+          onClick={() => onSelectGender("km")}
+        >
+          Male(child)
+        </button>
+        <button
+          className="global_btn my-2 py-4 w-100"
+          onClick={() => onSelectGender("kf")}
+        >
+          Female(child)
+        </button>
+      </div>
     </div>
-    <div className="scene_one_tagLine">
-      <h1 className="pb-2">Trained Image</h1>
-    </div>
-    <div className="trained_img">
-      <img src={TrainedImg} alt="trained result" />
-    </div>
-    <div className="scene_two_tc px-5 mt-3">
-      <p>*We are selected the above types of POSM for POC of SOV</p>
-    </div>
-    <div className="scene_two_btn">
-      <button className="global_btn" onClick={() => setCurrentScene(2)}>
-        Trial the POC
-      </button>
-    </div>
-  </div>
   );
 };
 
