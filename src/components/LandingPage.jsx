@@ -8,7 +8,7 @@ const LandingPage = ({ setCurrentScene, isAppInstalled, promptToInstall }) => {
           <img src={LogoOne} alt="logo" />
         </div>
         <div className="scene_brand">
-          <h1>Welcome to POC of Share of Visibility </h1>
+          <h1>Welcome to BATA </h1>
         </div>
 
         <div className="scene_one_btn">
