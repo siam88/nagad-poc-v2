@@ -67,16 +67,10 @@ const UploadPage = ({
     submitImage(
       formData,
       (result) => {
-        console.log(result);
-        // setResults((prev) => {
-        //   setImageUpdated(true);
-        //   setCurrentScene(3);
-        //   return { input: img, out: result };
-        // });
-
-        // setResults((prev) => {
-        //   return [...prev, { input: img, out: result }];
-        // });
+        setImageUpdated(true);
+        setCurrentScene(2);
+        setResults(result);
+        setLoading(false);
       },
       () => {}
     );
