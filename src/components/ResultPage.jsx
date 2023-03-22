@@ -33,23 +33,29 @@ const ResultPage = ({ setCurrentScene, result }) => {
         <div className="data_table mt-5">
           <div className="inner_data_table">
             {result.Show_size && result.feet_size_cm ? (
-              <>
+              <div style={{textAlign:"center"}}>
                 <h2>Feet Size</h2>
-                <table className="table table-bordered">
+                <hr/>
+                <h2>Shoe Size</h2>
+                <h1>{result.Show_size}</h1>
+                <hr/>
+                <h2>Feet Size(Cm)</h2>
+                <h1>{result.feet_size_cm.toFixed(2)}</h1>
+                {/* <table className="table table-bordered">
                   <thead>
                     <tr>
-                      <th scope="col">Shoe Size</th>
-                      <th scope="col">Feet Size(Cm)</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{result.Show_size}</td>
-                      <td>{result.feet_size_cm.toFixed(2)}</td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   </tbody>
-                </table>
-              </>
+                </table> */}
+              </div>
             ) : (
               <div style={{ textAlign: "center" }}>
                 <h1>Sorry,</h1>
