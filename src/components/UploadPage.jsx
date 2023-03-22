@@ -17,7 +17,8 @@ const UploadPage = ({
   setLoading,
   setResults,
   setImageUpdated,
-  loading,gender
+  loading,
+  gender,
 }) => {
   const [show, setShow] = useState(false);
   const [capturedImage, setCapturedImage] = useState("");
@@ -93,17 +94,16 @@ const UploadPage = ({
         reader.onerror = () => toast.warn("file reading has failed");
         reader.onload = () => {
           setLoading(true);
-          // const binaryStr = reader.result;
+          const binaryStr = reader.result;
 
           var formData = new FormData();
-          formData.append("file", dataURLtoFile(file));
+          formData.append("file", file);
           formData.append("gender", gender);
           // formData.append("file", dataURLtoFile(binaryStr));
           setResults();
           submitImage(
             formData,
             (result) => {
-              console.log(result);
               setImageUpdated(true);
               setCurrentScene(3);
               setResults(result);

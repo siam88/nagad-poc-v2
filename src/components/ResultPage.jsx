@@ -31,29 +31,31 @@ const ResultPage = ({ setCurrentScene, result }) => {
           <img src={LogoOne} alt="logo" />
         </div>
         <div className="data_table mt-5">
-          <h2>Feet Size</h2>
           <div className="inner_data_table">
             {result.Show_size && result.feet_size_cm ? (
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Shoe Size</th>
-                    <th scope="col">Feet Size(Cm)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{result.Show_size}</td>
-                    <td>{result.feet_size_cm.toFixed(2)}</td>
-                  </tr>
-                </tbody>
-              </table>
-            ) : (
               <>
-                <h1>Sorry. No Size Found. Take your picture again</h1>
-                <h1> No Size Found. </h1>
-                <h1> Take your picture again</h1>
+                <h2>Feet Size</h2>
+                <table className="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Shoe Size</th>
+                      <th scope="col">Feet Size(Cm)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{result.Show_size}</td>
+                      <td>{result.feet_size_cm.toFixed(2)}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </>
+            ) : (
+              <div style={{ textAlign: "center" }}>
+                <h1>Sorry,</h1>
+                <h2> No Size Found. </h2>
+                <h2> Take your picture again</h2>
+              </div>
             )}
           </div>
         </div>
