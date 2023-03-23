@@ -104,7 +104,7 @@ const UploadPage = ({
           const binaryStr = reader.result;
 
           var formData = new FormData();
-          formData.append("file", file);
+          formData.append("file", dataURLtoFile(binaryStr));
           formData.append("gender", gender);
           // formData.append("file", dataURLtoFile(binaryStr));
           setResults();
