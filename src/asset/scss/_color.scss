@@ -1,0 +1,12 @@
+:root {
+  --redPrimary: #e2001a;
+  --white: #ffffff;
+  --darkPrimary: #231f20;
+  --darkSecondary: #222222;
+}
+
+[data-theme="dark"] {
+  body {
+    background-color: #363636;
+  }
+}

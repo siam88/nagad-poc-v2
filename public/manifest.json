@@ -1,6 +1,6 @@
 {
-  "short_name": "Nagad-poc App",
-  "name": "Nagad-poc PWA Application",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,12 +18,6 @@
       "sizes": "512x512"
     }
   ],
-  "related_applications": [
-    {
-      "platform": "webapp",
-      "url": "https://poc-iota.vercel.app/manifest.json"
-    }
- ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

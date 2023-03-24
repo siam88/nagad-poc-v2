@@ -1,47 +1,48 @@
 import React, { useState } from "react";
-import InstructionPage from "../components/InstructionPage";
-import LandingPage from "../components/LandingPage";
-import UploadPage from "../components/UploadPage";
-import ResultPage from "../components/ResultPage";
-import ResultImagePreviewPage from "../components/ResultImagePreviewPage";
+import { Button, Container, Row } from "react-bootstrap";
+import Landing from "../components/scene/landing";
+import Instruction from "../components/scene/instruction";
+import Upload from "../components/scene/upload";
+import Result from "../components/scene/result";
+import Failed from "../components/scene/failed";
+import About from "../components/scene/about";
 
-const Home = ({ isAppInstalled, promptToInstall }) => {
+const Home = () => {
   const [currentScene, setCurrentScene] = useState(0);
-  const [imageUpdated, setImageUpdated] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState();
   const [gender, setGender] = useState();
-  const [message, setMessage] = useState();
+  const [results, setResults] = useState();
 
   switch (currentScene) {
     case 0:
-      return <LandingPage setCurrentScene={setCurrentScene} />;
+      return (
+        <Landing setCurrentScene={setCurrentScene} setGender={setGender} />
+      );
     case 1:
       return (
-        <InstructionPage
+        <About
           setCurrentScene={setCurrentScene}
           setGender={setGender}
+          gender={gender}
         />
       );
     case 2:
+      return <Instruction setCurrentScene={setCurrentScene} />;
+    case 3:
       return (
-        <UploadPage
+        <Upload
           gender={gender}
           setCurrentScene={setCurrentScene}
-          setImageUpdated={setImageUpdated}
-          loading={loading}
-          setLoading={setLoading}
           setResults={setResults}
-          setMessage={setMessage}
-
         />
       );
-    case 3:
-      return <ResultPage setCurrentScene={setCurrentScene} result={results} message={message} />;
-
+    case 4:
+      return <Result results={results} setCurrentScene={setCurrentScene} />;
+    case 5:
+      return <Failed setCurrentScene={setCurrentScene} />;
     default:
-      return <LandingPage setCurrentScene={setCurrentScene} />;
+      return (
+        <Landing setCurrentScene={setCurrentScene} setGender={setGender} />
+      );
   }
 };
-
 export default Home;
